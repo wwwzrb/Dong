@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.GroupEntity" table="group" schema="social">
+        <id name="groupId">
+            <column name="group_id" sql-type="int(11)"/>
+        </id>
+        <property name="groupName">
+            <column name="group_name" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="groTime">
+            <column name="gro_time" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="user" column="user_id" class="org.vo.UserEntity" cascade="all"/>
+        <set name="users" table="member" lazy="true" cascade="all">
+            <key column="group_id"/>
+            <many-to-many class="org.vo.UserEntity" column="user_id"/>
+        </set>
+    </class>
+</hibernate-mapping>

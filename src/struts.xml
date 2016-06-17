@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="default" extends="struts-default">
+        <action name="signin" class="signinAction">
+            <result name="success" type="chain">home</result>
+            <result name="error">index.jsp</result>
+        </action>
+        <action name="signup" class="signupAction">
+            <result name="success">index.jsp</result>
+            <result name="error">index.jsp</result>
+        </action>
+        <action name="publish" class="publishAction">
+            <result name="success" type="chain">person</result>
+            <result name="error">person.jsp</result>
+        </action>
+        <action name="person" class="personAction">
+            <result name="success">person.jsp</result>
+        </action>
+        <action name="search" class="searchAction">
+            <result name="success">friend.jsp</result>
+        </action>
+        <action name="addfriend" class="addfriendAction">
+            <result name="success" type="chain">friend</result>
+            <result name="error">friend.jsp</result>
+        </action>
+        <action name="friend" class="friendAction">
+            <result name="success">friend.jsp</result>
+        </action>
+        <action name="replypub" class="replypubAction">
+            <result name="home" type="chain">home</result>
+            <result name="person" type="chain">person</result>
+        </action>
+        <action name="home" class="homeAction">
+            <result name="success">home.jsp</result>
+        </action>
+        <action name="exit" class="exitAction">
+            <result name="success">index.jsp</result>
+        </action>
+    </package>
+</struts>

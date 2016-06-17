@@ -1,0 +1,18 @@
+body {
+      background-color: #DADADA;
+    }
+body > .grid {
+      height: 100%;
+    }
+.image {
+     
+    }
+.column {
+      max-width: 450px;
+    }
+.footer {
+    text-align: right;
+  }
+.text {
+    display: inline;
+  }
